@@ -31,22 +31,24 @@
    )
 
    (:action asignar-reserva
-      :parameters (?r - reserva ?h - habitacion)
-      :precondition (and
-         (not (asignada ?r))
-         (<= (num-personas ?r) (capacidad ?h))
-         (forall (?d - dia)
-            (not (and (dia-de-reserva ?r ?d)
-                     (ocupada ?h ?d))))
+   :parameters (?r - reserva ?h - habitacion)
+   :precondition (and
+      (not (asignada ?r))
+      (<= (num-personas ?r) (capacidad ?h))
+      ;; comprueba que ningún día esté ocupado
+      (forall (?d - dia)
+         (not (and (dia-de-reserva ?r ?d)
+                  (ocupada ?h ?d))))
+   )
+   :effect (and
+      (asignada ?r)
+      (ocupa ?r ?h)
+      ;; marca los días como ocupados
+      (forall (?d - dia)
+         (when (dia-de-reserva ?r ?d)
+               (ocupada ?h ?d)))
       )
-      :effect (and
-         (asignada ?r)
-         (ocupa ?r ?h)
-         (forall (?d - dia)
-            (when (dia-de-reserva ?r ?d)
-                  (ocupada ?h ?d)))
-      )
-      )
+   )
 
 
 )

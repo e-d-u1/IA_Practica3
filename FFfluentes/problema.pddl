@@ -26,11 +26,26 @@
     (= (dia-inicio r1) 1)
     (= (dia-fin    r1) 3)
 
-    (= (dia-inicio r2) 3)
-    (= (dia-fin    r2) 5)
+    (= (dia-inicio r2) 1)
+    (= (dia-fin    r2) 3)
 
-    (= (dia-inicio r3) 2)
-    (= (dia-fin    r3) 6)
+    (= (dia-inicio r3) 1)
+    (= (dia-fin    r3) 3)
+   
+   ;; MAPEADO DE DIAS R1 ocupa días 1 a 3
+   (dia-de-reserva r1 d1)
+   (dia-de-reserva r1 d2)
+   (dia-de-reserva r1 d3)
+
+   ;; R2 ocupa días 1 a 3
+   (dia-de-reserva r2 d1)
+   (dia-de-reserva r2 d2)
+   (dia-de-reserva r2 d3)
+
+   ;; R3 ocupa días 1 a 3
+   (dia-de-reserva r3 d1)
+   (dia-de-reserva r3 d2)
+   (dia-de-reserva r3 d3)
   )
 
   (:goal
