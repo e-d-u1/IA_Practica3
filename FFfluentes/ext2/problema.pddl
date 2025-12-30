@@ -43,25 +43,19 @@
    (dia-de-reserva r1 d1)
    (dia-de-reserva r1 d2)
    (dia-de-reserva r1 d3)
-   (dia-de-reserva r1 d4)
-   (dia-de-reserva r1 d5)
-   (dia-de-reserva r1 d6)
-   (dia-de-reserva r1 d7)
+
 
    ;; R2 ocupa días 1 a 7
    (dia-de-reserva r2 d1)
    (dia-de-reserva r2 d2)
    (dia-de-reserva r2 d3)
-   (dia-de-reserva r2 d4)
-   (dia-de-reserva r2 d5)
-   (dia-de-reserva r2 d6)
-   (dia-de-reserva r2 d7)
+
 
    ;;R3 ocupa dias 1 4
    (dia-de-reserva r3 d1) (dia-de-reserva r3 d2) (dia-de-reserva r3 d3) (dia-de-reserva r3 d4)
 
-   ;; R4 ocupa días 1 a 3
-   (dia-de-reserva r4 d5) (dia-de-reserva r4 d6) (dia-de-reserva r4 d7) (dia-de-reserva r4 d8)
+   ;; R4 ocupa días 5 a 8
+   (dia-de-reserva r4 d1) (dia-de-reserva r4 d2) (dia-de-reserva r4 d3) (dia-de-reserva r4 d4)
 
     ;; orientación de las habitaciones
     (orientacion h1 n)
@@ -69,9 +63,10 @@
 
     ;; preferencias de las reservas
     (preferencia r1 n)
-    (preferencia r2 s)
-    (preferencia r3 n)
-    (preferencia r4 n)
+    (preferencia r2 e)
+    (preferencia r3 o)
+    (preferencia r4 s)
+
 
     (= (coste-descartar) 0)
     (= (coste-orientacion) 0)
