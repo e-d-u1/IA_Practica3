@@ -84,9 +84,10 @@
         (or (asignada ?r) (descartada ?r)))
     )
 
+  )
   (:metric minimize
-  (+ (coste-descartar)
-     (coste-orientacion)
-     (* 0.5 (coste-desperdicio)))  
-))
+    (+ (coste-descartar)
+       (coste-orientacion)
+    )  
+  )
 )
