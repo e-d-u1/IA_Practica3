@@ -39,7 +39,7 @@
 
   (:metric minimize
     (+ (coste-descartar)
-       (coste-orientacion)
-       (* 1 (coste-desperdicio)))
+       (+ (coste-orientacion)
+       (* 1 (coste-desperdicio))))
   )
 )
