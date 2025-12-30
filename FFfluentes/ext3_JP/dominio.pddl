@@ -1,76 +1,69 @@
 (define (domain hotel)
-  (:requirements :adl :typing :fluents)
-
+  (:requirements :strips :typing :fluents)
   (:types
     reserva habitacion dia direccion
   )
 
   (:predicates
-      ;; la reserva ya ha sido asignada a alguna habitación
-      (asignada ?r - reserva)
-      (descartada ?r - reserva)
+    (asignada ?r - reserva)
+    (descartada ?r - reserva)
+    (ocupa ?r - reserva ?h - habitacion)
 
-      ;; la reserva r está asignada a la habitación h
-      (ocupa ?r - reserva ?h - habitacion)
+    (orientacion ?h - habitacion ?dir - direccion)
+    (preferencia ?r - reserva ?dir - direccion)
 
-      ;; Ext2: orientación de habitación y preferencia de reserva
-      (orientacion ?h - habitacion ?dir - direccion)
-      (preferencia ?r - reserva ?dir - direccion)
+    (ocupada ?h - habitacion ?d - dia)
+    (dia-de-reserva ?r - reserva ?d - dia)
+  )
 
-      ;; la habitación h está ocupada el día d
-      (ocupada ?h - habitacion ?d - dia)
-      (dia-de-reserva ?r - reserva ?d - dia)
-   )
+  (:functions
+    (num-personas ?r - reserva)
+    (capacidad ?h - habitacion)
+    (dia-inicio ?r - reserva)
+    (dia-fin ?r - reserva)
 
-   (:functions
-      ;; número de personas de la reserva
-      (num-personas ?r - reserva)
+    (coste-descartar)
+    (coste-orientacion)
+    (coste-desperdicio)
+  )
 
-      ;; capacidad de la habitación
-      (capacidad ?h - habitacion)
+  (:action asignar-reserva
+    :parameters (?r - reserva ?h - habitacion)
+    :precondition (and
+      (not (asignada ?r))
+      (<= (num-personas ?r) (capacidad ?h))
+      (forall (?d - dia)
+        (not (and (dia-de-reserva ?r ?d)
+                  (ocupada ?h ?d))))
+    )
+    :effect (and
+      (asignada ?r)
+      (ocupa ?r ?h)
+      (forall (?d - dia)
+        (when (dia-de-reserva ?r ?d)
+              (ocupada ?h ?d)))
 
-      ;; intervalo de la reserva
-      (dia-inicio ?r - reserva)
-      (dia-fin ?r - reserva)
+      ;; orientación incorrecta
+      (when (not (exists (?dir - direccion)
+                 (and (preferencia ?r ?dir)
+                      (orientacion ?h ?dir))))
+        (increase (coste-orientacion) 1))
 
-      (coste-descartar)  ;; coste por descartar
-      (coste-orientacion) ;; coste por asignar con orientación incorrecta
-      (coste-desperdicio) ;; coste por desperdicio 
-   )
+      ;; Extensión 3: desperdicio de plazas
+      (increase (coste-desperdicio)
+        (- (capacidad ?h) (num-personas ?r)))
+    )
+  )
 
-   (:action asignar-reserva
-      :parameters (?r - reserva ?h - habitacion)
-      :precondition (and
-         (not (asignada ?r))
-         (<= (num-personas ?r) (capacidad ?h))
-         (forall (?d - dia)
-            (not (and (dia-de-reserva ?r ?d)
-                     (ocupada ?h ?d))))
-      )
-      :effect (and
-         (asignada ?r)
-         (forall (?d - dia)
-            (when (dia-de-reserva ?r ?d)
-                  (ocupada ?h ?d)))
-         ;; penalización si orientación no coincide
-         (when (not (exists (?dir - direccion)
-                    (and (preferencia ?r ?dir) (orientacion ?h ?dir))))
-            (increase (coste-orientacion) 1))
-         ;; desperdicio de plazas
-         (increase (coste-desperdicio)
-            (- (capacidad ?h) (num-personas ?r)))
-      )
-   )
-
-   (:action descartar-reserva
-      :parameters (?r - reserva)
-      :precondition (and
-         (not (asignada ?r))
-         (not (descartada ?r))
-      )
-      :effect (and
-         (descartada ?r)
-         (increase (coste-descartar) 10)
-      )
-   )
+  (:action descartar-reserva
+    :parameters (?r - reserva)
+    :precondition (and
+      (not (asignada ?r))
+      (not (descartada ?r))
+    )
+    :effect (and
+      (descartada ?r)
+      (increase (coste-descartar) 10)
+    )
+  )
 )
