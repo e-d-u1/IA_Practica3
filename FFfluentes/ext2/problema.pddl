@@ -10,10 +10,12 @@
 
     ;; días
     d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 - dia
+
+    ;;orientacion
+    n s e o - direccion
   )
 
   (:init
-    (= (coste) 0)
     ;; capacidades de habitaciones
     (= (capacidad h1) 2)
     (= (capacidad h2) 4)
@@ -56,16 +58,23 @@
    (dia-de-reserva r2 d7)
 
    ;;R3 ocupa dias 1 4
-   (dia-de-reserva r3 d1)
-   (dia-de-reserva r3 d2)
-   (dia-de-reserva r3 d3)
-   (dia-de-reserva r3 d4)
+   (dia-de-reserva r3 d1) (dia-de-reserva r3 d2) (dia-de-reserva r3 d3) (dia-de-reserva r3 d4)
 
    ;; R4 ocupa días 1 a 3
-   (dia-de-reserva r4 d5)
-   (dia-de-reserva r4 d6)
-   (dia-de-reserva r4 d7)
-   (dia-de-reserva r4 d8)
+   (dia-de-reserva r4 d5) (dia-de-reserva r4 d6) (dia-de-reserva r4 d7) (dia-de-reserva r4 d8)
+
+    ;; orientación de las habitaciones
+    (orientacion h1 n)
+    (orientacion h2 s)
+
+    ;; preferencias de las reservas
+    (preferencia r1 n)
+    (preferencia r2 s)
+    (preferencia r3 n)
+    (preferencia r4 n)
+
+    (= (coste-descartar) 0)
+    (= (coste-orientacion) 0)
   )
 
   (:goal
@@ -75,6 +84,6 @@
     )
   )
 
-  (:metric minimize (coste))
+  (:metric minimize (+ (coste-descartar) (coste-orientacion)))
 
 )
