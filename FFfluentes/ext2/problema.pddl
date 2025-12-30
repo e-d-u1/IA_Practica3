@@ -52,10 +52,10 @@
 
 
    ;;R3 ocupa dias 1 4
-   (dia-de-reserva r3 d1) (dia-de-reserva r3 d2) (dia-de-reserva r3 d3) (dia-de-reserva r3 d4)
+   (dia-de-reserva r3 d4) (dia-de-reserva r3 d5) (dia-de-reserva r3 d6) (dia-de-reserva r3 d7)
 
    ;; R4 ocupa días 5 a 8
-   (dia-de-reserva r4 d1) (dia-de-reserva r4 d2) (dia-de-reserva r4 d3) (dia-de-reserva r4 d4)
+   (dia-de-reserva r4 d4) (dia-de-reserva r4 d5) (dia-de-reserva r4 d6) (dia-de-reserva r4 d7)
 
     ;; orientación de las habitaciones
     (orientacion h1 n)

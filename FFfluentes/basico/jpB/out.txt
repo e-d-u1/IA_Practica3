@@ -1,0 +1,31 @@
+
+ff: parsing domain file
+domain 'HOTEL' defined
+ ... done.
+ff: parsing problem file
+problem 'HOTEL-BASIC' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:    3
+                          2
+
+best first search space empty! problem proven unsolvable.
+
+
+
+time spent:    0.00 seconds instantiating 0 easy, 5 hard action templates
+               0.00 seconds reachability analysis, yielding 32 facts and 5 actions
+               0.00 seconds creating final representation with 18 relevant facts, 0 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 12 states, to a max depth of 0
+               0.00 seconds total time
+
