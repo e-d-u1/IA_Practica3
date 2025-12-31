@@ -67,4 +67,4 @@ def gen_ext1_problem(nombre="hotel-ext1"):
 if __name__ == "__main__":
     with open("problema-ext1-generado.pddl", "w") as f:
         f.write(gen_ext1_problem())
-    print("✔ problema-ext1-generado.pddl generado")
+    print("problema-ext1-generado.pddl generado")

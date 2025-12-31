@@ -46,7 +46,7 @@
          (forall (?d - dia)
             (when (dia-de-reserva ?r ?d)
                   (ocupada ?h ?d)))
-         )
+      )
    )
 
 

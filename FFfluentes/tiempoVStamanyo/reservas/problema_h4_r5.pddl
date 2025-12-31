@@ -1,0 +1,80 @@
+(define (problem problema_h4_r5)
+  (:domain hotel)
+
+  (:objects
+    h1 h2 h3 h4 - habitacion
+    r1 r2 r3 r4 r5 - reserva
+    d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 d16 d17 d18 d19 d20 d21 d22 d23 d24 d25 d26 d27 d28 d29 d30 - dia
+    n s e o - direccion
+  )
+
+  (:init
+    (= (coste-descartar) 0)
+    (= (coste-orientacion) 0)
+    (= (coste-desperdicio) 0)
+    (= (coste-habitaciones) 0)
+    (= (capacidad h1) 1)
+    (= (capacidad h2) 4)
+    (= (capacidad h3) 1)
+    (= (capacidad h4) 4)
+    (orientacion h1 s)
+    (orientacion h2 n)
+    (orientacion h3 s)
+    (orientacion h4 n)
+
+    (= (num-personas r1) 3)
+    (= (dia-inicio r1) 8)
+    (= (dia-fin r1) 13)
+    (dia-de-reserva r1 d8)
+    (dia-de-reserva r1 d9)
+    (dia-de-reserva r1 d10)
+    (dia-de-reserva r1 d11)
+    (dia-de-reserva r1 d12)
+    (dia-de-reserva r1 d13)
+    (preferencia r1 s)
+
+    (= (num-personas r2) 1)
+    (= (dia-inicio r2) 24)
+    (= (dia-fin r2) 24)
+    (dia-de-reserva r2 d24)
+    (preferencia r2 n)
+
+    (= (num-personas r3) 1)
+    (= (dia-inicio r3) 8)
+    (= (dia-fin r3) 12)
+    (dia-de-reserva r3 d8)
+    (dia-de-reserva r3 d9)
+    (dia-de-reserva r3 d10)
+    (dia-de-reserva r3 d11)
+    (dia-de-reserva r3 d12)
+    (preferencia r3 o)
+
+    (= (num-personas r4) 3)
+    (= (dia-inicio r4) 14)
+    (= (dia-fin r4) 15)
+    (dia-de-reserva r4 d14)
+    (dia-de-reserva r4 d15)
+    (preferencia r4 n)
+
+    (= (num-personas r5) 1)
+    (= (dia-inicio r5) 1)
+    (= (dia-fin r5) 7)
+    (dia-de-reserva r5 d1)
+    (dia-de-reserva r5 d2)
+    (dia-de-reserva r5 d3)
+    (dia-de-reserva r5 d4)
+    (dia-de-reserva r5 d5)
+    (dia-de-reserva r5 d6)
+    (dia-de-reserva r5 d7)
+    (preferencia r5 o)
+  )
+
+  (:goal
+    (and
+      (forall (?r - reserva)
+        (or (asignada ?r) (descartada ?r))
+      )
+    )
+  )
+(:metric minimize (+ (coste-descartar)    (+ (coste-orientacion)       (+ (* 0.25 (coste-habitaciones))          (* 0.5 (coste-desperdicio))))))
+)

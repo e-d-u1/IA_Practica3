@@ -63,4 +63,4 @@ def gen_basic_problem(nombre="hotel-basic"):
 if __name__ == "__main__":
     with open("problema-basico-generado.pddl", "w") as f:
         f.write(gen_basic_problem())
-    print("✔ problema-basico-generado.pddl generado")
+    print("problema-basico-generado.pddl generado")

@@ -80,4 +80,4 @@ def gen_ext2_problem(nombre="hotel-ext2"):
 if __name__ == "__main__":
     with open("problema-ext2-generado.pddl", "w") as f:
         f.write(gen_ext2_problem())
-    print("✔ problema-ext2-generado.pddl generado")
+    print("problema-ext2-generado.pddl generado")
