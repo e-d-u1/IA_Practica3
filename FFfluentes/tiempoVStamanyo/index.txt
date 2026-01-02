@@ -1,0 +1,8 @@
+Aqui se encuentran los archivos usados para el punto extra de comparación del tiempo de ejecución vs tamaño del problema.
+Se adjuntan también los gráficos usados.
+
+Si se quisiera ejecutar en windows se ha usado:
+
+% python grafic<Reservas/Habitaciones>.py 
+
+Con esto se debería obtener la salida en consola y el propio gráfico usado en la documentación.
