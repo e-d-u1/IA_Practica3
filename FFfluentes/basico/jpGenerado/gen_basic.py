@@ -27,7 +27,7 @@ def gen_basic_problem(nombre="hotel-basic"):
 
     out.append("  (:init")
 
-    # Capacidades
+    # Capacidades --> Hardcodeeado en todas las extensiones menos la 4.
     out.append("    (= (capacidad h1) 2)")
     out.append("    (= (capacidad h2) 4)")
     out.append("    (= (capacidad h3) 3)")
