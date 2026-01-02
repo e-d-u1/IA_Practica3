@@ -7,7 +7,6 @@
   (:predicates
     (asignada ?r - reserva)
     (descartada ?r - reserva)
-    (ocupa ?r - reserva ?h - habitacion)
 
     (orientacion ?h - habitacion ?dir - direccion)
     (preferencia ?r - reserva ?dir - direccion)
@@ -38,7 +37,6 @@
     )
     :effect (and
       (asignada ?r)
-      (ocupa ?r ?h)
       (forall (?d - dia)
         (when (dia-de-reserva ?r ?d)
               (ocupada ?h ?d)))
