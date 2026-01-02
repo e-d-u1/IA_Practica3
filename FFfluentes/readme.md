@@ -3,7 +3,7 @@ En cada carpeta se encuentra el código usado para cada una de las extensiones j
 Para ejecutar en windows se ha usado: 
    % metricff.exe -O -o dominio.pddl -f problema.pddl 
 Para ejecutar en linux: 
-   ./Metric-FF/ff -o dominio.pddl -f problema.pddl 
+   ./ff -o dominio.pddl -f problema.pddl 
 En la carpeta correspondiente
 
 

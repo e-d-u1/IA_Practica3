@@ -1,1 +1,1 @@
-./Metric-FF/ff -o dominio.pddl -f problema.pddl 
+./ff -o dominio.pddl -f problema.pddl 
