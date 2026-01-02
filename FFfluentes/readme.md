@@ -2,7 +2,9 @@ En cada carpeta se encuentra el código usado para cada una de las extensiones j
 
 Para ejecutar en windows se ha usado: 
    % metricff.exe -O -o dominio.pddl -f problema.pddl 
-En la carpeta correspondiente y ya debería de funcionar.
+Para ejecutar en linux: 
+   ./Metric-FF/ff -o dominio.pddl -f problema.pddl 
+En la carpeta correspondiente
 
 
 El generador para cada una de las extensiones se encuentra dentro de la carpeta de JPGenerado que hay en cada una, es
