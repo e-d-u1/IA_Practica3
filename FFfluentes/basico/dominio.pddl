@@ -10,9 +10,6 @@
       ;; la reserva ya ha sido asignada a alguna habitación
       (asignada ?r - reserva)
 
-      ;; la reserva r está asignada a la habitación h
-      (ocupa ?r - reserva ?h - habitacion)
-
       ;; la habitación h está ocupada el día d
       (ocupada ?h - habitacion ?d - dia)
       (dia-de-reserva ?r - reserva ?d - dia)

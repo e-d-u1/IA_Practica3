@@ -10,9 +10,6 @@
       (asignada ?r - reserva)
       (descartada ?r - reserva)
 
-      ;; la reserva r está asignada a la habitación h
-      (ocupa ?r - reserva ?h - habitacion)
-
       ;; Ext2: orientación de habitación y preferencia de reserva
       (orientacion ?h - habitacion ?dir - direccion)
       (preferencia ?r - reserva ?dir - direccion)
